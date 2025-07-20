@@ -25,7 +25,7 @@ Repository ini berisi contoh implementasi **CRUD (Create, Read, Update, Delete)*
 
 ## 📦 Teknologi Digunakan
 
-- **Laravel 10** - PHP Framework
+- **Laravel 5** - PHP Framework
 - **MySQL** - Database
 - **Bootstrap 5** - Styling
 - **Eloquent ORM** - Database operations
@@ -43,6 +43,7 @@ Repository ini berisi contoh implementasi **CRUD (Create, Read, Update, Delete)*
 ```bash
 git clone https://github.com/orinno/MyNotes.git
 cd mynotes
+```
 
 2. Install dependencies
 ```bash
