@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Notes</title>
+    <title>Catatan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,7 +20,7 @@
 
     <div class="container">
         <div class="title mt-3 mb-3">
-            <h3 class="">My Notes</h3>
+            <h3 class="">Catatan</h3>
             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addNote">
                 <i class="fa-solid fa-plus"></i>
             </button>
@@ -31,25 +31,26 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add My Note</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Buat Catatan</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('notes.index.store') }}" method="post">
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
+                                <label for="title" class="form-label">Judul</label>
                                 <input type="text" name="title" id="title" class="form-control"
-                                    placeholder="Title">
+                                    placeholder="Judulnya...">
                             </div>
                             <div class="mb-3">
-                                <label for="content" class="form-label">Content</label>
-                                <textarea name="content" id="content" cols="30" rows="10" class="form-control" placeholder="Content"></textarea>
+                                <label for="content" class="form-label">Catatan</label>
+                                <textarea name="content" id="content" cols="30" rows="10" class="form-control"
+                                    placeholder="Buat catatan..."></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                 </div>
                 </form>
@@ -69,7 +70,7 @@
                                         <h6 class="card-title fw-semibold">{{ $note->title ?? '' }}</h6>
                                     @else
                                         <h6 class="card-title fw-semibold">
-                                            Title
+                                            -
                                         </h6>
                                     @endif
                                     <div class="dropdown">
@@ -81,7 +82,7 @@
                                             <li><a class="dropdown-item" data-bs-toggle="modal"
                                                     href="#editNote{{ $note->id }}">
                                                     <i class="fa-solid fa-pen-to-square m-2 fa-sm text-primary"></i>
-                                                    Edit
+                                                    Ubah
                                                 </a></li>
                                             <li>
                                                 <form action="{{ route('notes.index.destroy', $note->id) }}"
@@ -90,7 +91,7 @@
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item"> <i
                                                             class="fa-solid fa-trash-can text-danger m-2 fa-sm"></i>
-                                                        Delete</button>
+                                                        Hapus</button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -98,8 +99,6 @@
                                 </div>
                                 @if ($note->content)
                                     <p class="card-text">{{ $note->content ?? '' }}</p>
-                                @else
-                                    <p class="card-text">empty note...</p>
                                 @endif
 
                                 <!-- Modal Update -->
@@ -108,7 +107,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit My Note</h1>
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
@@ -118,19 +117,19 @@
                                                 @method('PUT')
                                                 <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label for="title" class="form-label">Title</label>
+                                                        <label for="title" class="form-label">Judul</label>
                                                         <input type="text" name="title" class="form-control"
-                                                            placeholder="Title" value={{ $note->title ?? '' }}>
+                                                            placeholder="Judulnya..." value={{ $note->title ?? '' }}>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="content" class="form-label">Content</label>
-                                                        <textarea name="content" cols="30" rows="10" class="form-control" placeholder="Content">{{ $note->content ?? '' }}</textarea>
+                                                        <label for="content" class="form-label">Catatan</label>
+                                                        <textarea name="content" cols="30" rows="10" class="form-control" placeholder="Buat catatan...">{{ $note->content ?? '' }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                        data-bs-dismiss="modal">Tutup</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                                 </div>
                                         </div>
                                         </form>
