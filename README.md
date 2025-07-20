@@ -48,26 +48,32 @@ cd mynotes
 2. Install dependencies
 ```bash
 composer install
+```
 
 3. Copy file .env.example, lalu rename menjadi .env
 
 4. Konfigurasi database di .env
 sesuaikan dengan local database masing-masing:
+```bash
 DB_DATABASE='nama_table'
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
 4. Generate app key:
 ```bash
 php artisan key:generate
+```
 
 5. Jalankan migrasi
 ```bash
 php artisan migrate --seed 
+```
 
 6. Jalankan aplikasi
 ```bash
 php artisan serve
+```
 
 Buka di browser: http://localhost:8000
 
